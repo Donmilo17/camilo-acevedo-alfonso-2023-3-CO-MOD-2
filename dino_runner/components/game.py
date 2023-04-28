@@ -13,7 +13,7 @@ class Game:
         self.playing = False
         self.game_speed = 20
         self.x_pos_bg = 0
-        self.y_pos_bg = 380
+        self.y_pos_bg = 880
 
     def run(self):
         # Game loop: events - update - draw
@@ -34,7 +34,7 @@ class Game:
 
     def draw(self):
         self.clock.tick(FPS)
-        self.screen.fill((255, 255, 255))
+        self.screen.fill((0, 0, 255))
         self.draw_background()
         pygame.display.update()
         pygame.display.flip()
