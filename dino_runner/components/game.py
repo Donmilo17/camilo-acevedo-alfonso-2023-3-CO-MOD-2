@@ -13,7 +13,7 @@ class Game:
         self.playing = False
         self.game_speed = 20
         self.x_pos_bg = 0
-        self.y_pos_bg = 880
+        self.y_pos_bg = 850
 
     def run(self):
         # Game loop: events - update - draw
