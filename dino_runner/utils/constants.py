@@ -3,8 +3,8 @@ import os
 
 # Global Constants
 TITLE = "Dino runner"
-SCREEN_HEIGHT = 1080
-SCREEN_WIDTH = 1920
+SCREEN_HEIGHT = 720
+SCREEN_WIDTH = 1280
 FPS = 60
 IMG_DIR = os.path.join(os.path.dirname(__file__), "..", "assets")
 
@@ -70,3 +70,5 @@ BG = pygame.image.load(os.path.join(IMG_DIR, 'Other/Track.png'))
 HEART = pygame.image.load(os.path.join(IMG_DIR, 'Other/SmallHeart.png'))
 
 DEFAULT_TYPE = "default"
+
+FONT_STYLE = "freesansbold.ttf"
