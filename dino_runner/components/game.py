@@ -62,7 +62,7 @@ class Game:
 
     def draw(self):
         self.clock.tick(FPS)
-        self.screen.fill((255, 255, 255))
+        self.screen.fill((0, 0, 0))
         self.draw_background()
         self.player.draw(self.screen)
         self.obstacle_manager.draw(self.screen)
@@ -84,7 +84,7 @@ class Game:
         half_screen_width = SCREEN_WIDTH // 2
         half_screen_height = SCREEN_HEIGHT // 2
         self.screen.blit(ICON, (half_screen_width - 50, half_screen_height - 140))
-        self.menu.draw(self.screen)
+        self.menu.draw(self.screen, self.score.count, self.obstacle_manager.dino_deaths, self.score.max_score )
         self.menu.update(self)
         
         
@@ -96,4 +96,5 @@ class Game:
     def reset_game(self):
         self.obstacle_manager.reset_obstacles()
         self.game_speed = self.GAME_SPEED
+        self.score.reset()
         self.player.reset()
