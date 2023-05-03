@@ -1,27 +1,21 @@
-import pygame
-from dino_runner.components.obstacles.obstacle import Obstacle
 import random
 
-class BirdDown(Obstacle):
-    
-    def __init__(self, image):
-        self.image = image
-        self.type = random.randint(0, 1)
-        super().__init__(image, self.type)
-        self.rect.y = 275
-        
-        
-class BirdMid(Obstacle):
-    def __init__(self, image):
-        self.image = image
-        self.type = random.randint(0, 1)
-        super().__init__(image, self.type)
-        self.rect.y = 225
-        
-        
-class BirdUp(Obstacle):
-    def __init__(self, image):
-        self.image = image
-        self.type = random.randint(0, 1)
-        super().__init__(image, self.type)
-        self.rect.y = 160
+from dino_runner.components.obstacles.obstacle import Obstacle
+from dino_runner.utils.constants import BIRD
+
+class Bird(Obstacle):
+    BIRD_HEIGHTS = [260, 220, 170]
+
+    def __init__(self):
+        self.type = 0
+        super().__init__(BIRD, self.type)
+        self.rect.y = self.BIRD_HEIGHTS[random.randint(0, 2)]
+        self.index = 0
+
+    def draw(self, screen):
+        if self.index >= 10:
+            self.index = 0
+
+        # Bird flying animation
+        screen.blit(BIRD[self.index // 5], (self.rect.x, self.rect.y))
+        self.index += 1
